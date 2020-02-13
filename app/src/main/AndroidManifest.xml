@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kitesoft.ex27activity4">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SecondActivity">
+            <!-- 묵시적 인텐트로 지정한 문자열액션값을 인식할 수 있도록 인텐트필터 추가   -->
+            <intent-filter>
+                <!-- MainActivity에서 intent.setAction("aaa");로 설정한 액션값을 인식하기 위해 <action>추가 -->
+                <action android:name="aaa"/>
+
+                <!-- 하나의 Activity에 여러개의 인식 문자열액션값을 추가할 수 있음. 즉, intent.setAction("bbb");로 설정한 Intent로도 실행될 수 있음. -->
+                <action android:name="bbb"/>
+
+                <!-- Intent를 식별하는 액션값에 추가로 설정하는 값으로서 특별한 설정값이 없더라도 기본  "android.intent.category.DEFAULT"는 필수로 지정해야함  -->
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
